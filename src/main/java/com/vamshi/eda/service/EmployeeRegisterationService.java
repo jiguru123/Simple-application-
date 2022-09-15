@@ -7,6 +7,7 @@ import com.vamshi.eda.entity.Employee;
 import com.vamshi.eda.repository.DepartementRepository;
 import com.vamshi.eda.repository.EmployeeRepository;
 import com.vamshi.eda.repository.UserRepository;
+import com.vamshi.eda.repository.UserTypeRepository;
 
 @Service
 public class EmployeeRegisterationService {
@@ -20,15 +21,16 @@ public class EmployeeRegisterationService {
 	@Autowired
 	UserRepository userRepository;
 	
-	
+	@Autowired
+	UserTypeRepository userTypeRepository;
 	
 	
 	public Employee saveEmployee(Employee employee) {
 		if(employee.getUser() != null) {
 			userRepository.save(employee.getUser());
 		}
-		if(employee.getDepartement() != null) {
-			departementRepository.save(employee.getDepartement());
+		if(employee.getUser() != null) {
+			userRepository.save(employee.getUser());
 		}
 		return employeeRepository.save(employee);
 	}
